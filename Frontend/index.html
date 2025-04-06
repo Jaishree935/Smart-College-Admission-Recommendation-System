@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart College Admission System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <header>
+        <div class="logo">@ A2J System</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" id="aboutBtn">About</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav> 
+        
+        <div class="profile-container">
+            <img src="static/profile-icon.png" alt="Profile" class="profile-icon" onclick="toggleDropdown()">
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="profile.html">Profile</a>
+                <a href="logout.php">Logout</a>
+            </div>
+        </div>
+    </header> 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 style="
+            font-size: 35px; 
+            font-weight: bold; 
+            background: linear-gradient(to right, #ff8c00, #ff0080); 
+            -webkit-background-clip: text; 
+            color: transparent; 
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
+            animation: glow 1.5s infinite alternate;">
+            Smart College Admission Recommendation System
+        </h1>
+        
+        <p style="
+            font-size: 20px; 
+            color: black; 
+            font-weight: 500;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            animation: fadeIn 2s ease-in-out;">
+            From Dreams to Degree, Find Your Path
+        </p>
+        <a href="calculate.html"><button>Calculate Your Cutoff</button></a>
+        </div>
+    </section>
+     <!-- About Popup Modal -->
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>About Our Smart College Admission Recommendation System</h2>
+        <p>Finding the right college is now effortless with our <strong>Smart College Admission Recommendation System</strong>. Explore <strong>college locations via an interactive satellite view</strong>, discover <strong>available departments</strong>, and refine your search using <strong>cutoff marks, location, department, and caste-based filters</strong>.</p>
+        
+        <p>Our system provides <strong>personalized recommendations</strong> and displays the best-matched colleges based on your preferences. Additionally, our <strong>AI-powered chatbot</strong> offers instant assistance with common admission queries.</p>
+        
+        <p>Make informed decisions with <strong>real-time insights and seamless comparisons</strong>—whether you're a student or a parent guiding the admission process.</p>
+    </div>
+</div>
+
+   <!-- Features Section -->
+<div class="f-head">
+    <h2 style="font-size: 28px;">Explore</h2>
+</div>
+<section class="features" id="explore">
+    <div class="feature-box">
+        <!-- Make the image clickable to go to suggestion.html -->
+        <a href="suggestion.html">
+            <img src="static/college1.jpg" alt="College 1" style="height: 250px;">
+        </a>
+        <h3 style="font-size: 22px;">Explore your Favorite Colleges</h3>
+        <p style="font-size: 18px;">Discover top colleges and what makes them unique.</p>
+    </div>
+
+    <!-- Other feature boxes remain the same -->
+    <div class="feature-box">
+        <a class="map" href="https://labs.mapbox.com/contribute/#/?owner=mapbox&id=streets-v11..." target="_blank">
+            <img src="static/college2.jpg" alt="College 2" style="height: 250px;">
+        </a>
+        <p style="text-decoration: none; font-weight: bold; color: black; font-size: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Locate your colleges</p>
+        <p style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Find the best colleges in your area with ease.</p>
+    </div>
+    <div class="feature-box">
+        <img src="static/college3.jpg" alt="College 3" style="height: 250px;">
+        <h3 style="font-size: 22px;">Personalized guidance using chatbot</h3>
+        <p style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get tailored advice and answers instantly via our &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chatbot.</p>
+    </div>
+</section>
+<div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-header" onclick="toggleChatbot()">
+       
+    </div>
+    <iframe id="chatbotFrame" src="index1.html"></iframe>
+</div>
+<!-- Chatbot Toggle Button -->
+<button class="chatbot-toggle" onclick="toggleChatbot()">
+    <img src="icon.jpg" alt="Chat">  
+</button>
+
+    <!-- Footer Section -->
+    <footer class="custom-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">College Finder</a></li>
+                    <li><a href="#">Admission Guide</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Have a Question?</h3>
+                <ul>
+                                <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section">
+                <h3>Follow us on</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/login/"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://www.instagram.com/accounts/login/?hl=en"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.youtube.com/account"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a href="https://x.com/i/flow/login?lang=en"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://web.telegram.org/a/"><i class="fab fa-telegram"></i> Telegram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2025 A2J System | All Rights Reserved</p>
+        </div>
+    </footer>   
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/YOUR-FONTAWESOME-KIT.js" crossorigin="anonymous"></script>
+    
+        <script>        
+            // Run on page load
+            document.addEventListener("DOMContentLoaded", checkLoginStatus);
+           
+                function logout() {
+                    fetch("logout.php")
+                        .then(() => {
+                            alert("Logged out successfully!");
+                            window.location.href = "index.html"; // Redirect to home
+                        });
+                }
+             
+                function toggleDropdown() {
+        document.getElementById("dropdownMenu").classList.toggle("show");
+    }
+    // Close dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-icon')) {
+            var dropdowns = document.getElementsByClassName("dropdown-menu");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }   
+    
+        // Function to check login status
+        function checkLoginStatus() {
+            fetch("check_login.php") // Call PHP script to check session
+                .then(response => response.json())
+                .then(data => {
+                    if (data.isLoggedIn) {
+                        document.getElementById("login-btn").style.display = "none";
+                        document.getElementById("register-btn").style.display = "none";
+                        document.getElementById("logout-btn").style.display = "inline-block";
+                    } else {
+                        document.getElementById("login-btn").style.display = "inline-block";
+                        document.getElementById("register-btn").style.display = "inline-block";
+                        document.getElementById("logout-btn").style.display = "none";
+                    }
+                })
+                .catch(error => console.error("Error checking login:", error));
+        }
+        function toggleChatbot() {
+            var chatbot = document.getElementById("chatbotContainer");
+            chatbot.classList.toggle("open");
+        }
+        
+        // Run on page load
+        document.addEventListener("DOMContentLoaded", checkLoginStatus);
+   
+        document.addEventListener("DOMContentLoaded", function() {
+            var modal = document.getElementById("aboutModal");
+            var btn = document.getElementById("aboutBtn");
+            var closeBtn = document.querySelector(".close");
+        
+            // Open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+        
+            // Close the modal
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+        
+            // Close the modal when clicking outside of it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+        
+        document.querySelector('a[href="#explore"]').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('explore').scrollIntoView({ behavior: 'smooth' });
+        });
+        </script>
+        
+    
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Cutoff</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">@ A2J System</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Calculate Section -->
+    <section class="calculate">
+        <div class="container">
+            <h2>Calculate Your Cutoff</h2>
+            <form id="cutoffForm">
+                <input type="number" id="maths" placeholder="Maths Marks" required>
+                <input type="number" id="physics" placeholder="Physics Marks" required>
+                <input type="number" id="chemistry" placeholder="Chemistry Marks" required>
+                <button type="submit">Calculate Cutoff</button>
+            </form>
+            <div id="result" class="result">
+                <!-- The result will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>@ A2J System</h3>
+                <p>Helping students find the best college recommendations with ease.</p>
+            </div>
+            <div class="footer-middle">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Explore</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 A2J System | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("cutoffForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const maths = parseFloat(document.getElementById("maths").value);
+            const physics = parseFloat(document.getElementById("physics").value);
+            const chemistry = parseFloat(document.getElementById("chemistry").value);
+            
+            if (isNaN(maths) || isNaN(physics) || isNaN(chemistry)) {
+                alert("Please enter valid marks.");
+                return;
+            }
+
+            const cutoff = maths + ((physics + chemistry) / 2);
+            document.getElementById("result").innerHTML = `<h3>Your Cutoff: ${cutoff.toFixed(2)}</h3>`;
+        });
+    </script>
+
+</body>
+</html>
