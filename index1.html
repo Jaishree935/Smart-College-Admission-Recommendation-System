@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Chatbot</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Chatbot Icon -->
+    <div class="chat-icon" id="chat-icon" onclick="toggleChatbot()">
+        <img src="icon.jpg" alt="Bot Icon" class="chat-icon-img">
+    </div>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbot">
+        <div class="chat-header">
+            <img src="icon.jpg" alt="Bot Logo" class="bot-logo"> 
+            A2JBOT
+            <span class="close-btn" onclick="toggleChatbot()">&times;</span>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">Hi! How can I assist you?</div>
+            <div class="suggestions" id="suggestions">
+                <div class="suggestion">
+                    <img src="icon.jpg" alt="Bot Icon" class="suggestion-icon">
+                    <button onclick="sendMessage('What courses are available?')">What courses are available?</button>
+                </div>
+                <div class="suggestion">
+                    <img src="icon.jpg" alt="Bot Icon" class="suggestion-icon">
+                    <button onclick="sendMessage('What is the admission process?')">What is the admission process?</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener("message", function(event) {
+            if (event.data === "openChat") {
+                document.getElementById("chatbot").style.display = "block";
+            }
+        });
+    
+        // Automatically open the chatbot when page loads inside iframe
+        window.onload = function() {
+            document.getElementById("chatbot").style.display = "block";
+        };
+    </script>
+    
+    
+</body>
+</html>

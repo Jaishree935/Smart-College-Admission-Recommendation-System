@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Background iframe for index page */
+        #backgroundPage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            border: none;
+            z-index: -1; /* Behind everything */
+        }
+
+        /* Login Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark Transparent Background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+        }
+
+        /* Show the popup when active */
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1); /* Glassmorphism Effect */
+            backdrop-filter: blur(12px);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            position: relative;
+            animation: fadeInUp 0.5s ease-in-out;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 22px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            text-align: left;
+            font-weight: 500;
+            margin-top: 10px;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            outline: none;
+        }
+
+        input::placeholder {
+            color: #ddd;
+        }
+
+        button {
+            background: linear-gradient(135deg, #6a0dad, #a020f0); /* Gradient Purple */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #5a0ba5, #8b16c4); /* Darker Gradient */
+            transform: scale(1.05);
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        a {
+            color: #ffcc00; /* Gold */
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: rgba(255, 77, 77, 0.8); /* Red */
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        /* Success Popup */
+        .success-popup {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #6a0dad;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+        .success-popup.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Background Page -->
+    <iframe id="backgroundPage" src="index.html"></iframe>
+
+    <!-- Login Overlay -->
+    <div class="overlay active" id="loginOverlay">
+        <div class="container"> 
+            <h2>Login</h2>
+            <form id="loginForm" action="login.php" method="POST">
+                <label>Email:</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
+
+                <label>Password:</label>
+                <input type="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="success-popup" id="successPopup">Login Successful!</div>
+
+    <script>
+         
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+        
+            // Get input values
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+        
+            if (email && password) { // Replace with actual authentication logic
+                localStorage.setItem("isLoggedIn", "true");
+        
+                // Show success popup
+                let popup = document.getElementById("successPopup");
+                popup.classList.add("active");
+        
+                // Redirect after showing the popup
+                setTimeout(() => {
+                    popup.classList.remove("active");
+                    window.location.href = "index.html"; // Redirect after successful login
+                }, 1500);
+            } else {
+                alert("Invalid email or password!");
+            }
+        });
+        
+
+        // Show success popup
+        function showSuccessPopup() {
+            let popup = document.getElementById("successPopup");
+            popup.classList.add("active");
+            setTimeout(() => {
+                popup.classList.remove("active");
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
